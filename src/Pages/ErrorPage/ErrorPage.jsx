@@ -1,6 +1,7 @@
 import React from 'react';
 import'./ErrorPage.css'
 import { Link } from 'react-router-dom';
+import Button from '../../components/Button';
 const ErrorPage = () => {
     return (
         <section className="page_404">
@@ -21,7 +22,7 @@ const ErrorPage = () => {
           
           <p>the page you are looking for not avaible!</p>
           
-          <Link to="/" className="link_404">Go to Home</Link>
+          <Link to="/"> <Button buttonText={"GO TO HOME"}></Button> </Link>
         </div>
           </div>
           </div>
