@@ -96,7 +96,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <input className="btn text-white bg-red-500 hover:bg-black" type="submit" value="signup" />
                             </div>
-                            <p>New in Marco Academy ? <Link to="/register">Register</Link></p>
+                            <p>New in PowerPlay Fusion Edge ? <Link to="/register">Register</Link></p>
                             <div className="divider mb-0">OR</div>
 
                         </form>

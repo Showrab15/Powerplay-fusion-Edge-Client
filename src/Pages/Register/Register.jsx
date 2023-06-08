@@ -7,8 +7,9 @@ import registerImage from '../../assets/register-page.svg'
 import dynamicTitle from '../../hooks/DynamicTitle';
 import SectionHeader from '../../components/SectionHeader';
 import registerHeader from '../../assets/registerHeader.jpg'
-import {  FaEye ,FaEyeSlash} from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 const Register = () => {
 
     dynamicTitle('Register');
@@ -21,9 +22,9 @@ const Register = () => {
 
 
 
-    const { createUser } = useAuthContext()
+    const { createUser, userUpdateProfile } = useAuthContext();
     const navigate = useNavigate();
-    const [showPassword, setShowPassword] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = data => {
         console.log(data);
@@ -31,13 +32,28 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                navigate('/')
-                reset();
-                toast("User Created Successfully")
+                userUpdateProfile(data.name, data.photo)
+                    .then(() => {
+                        const savedUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: "POST",
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(savedUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    Swal.dire('user created succesfully done')
+                                    reset();
+                                    navigate('/')
+                                }
+                            })
 
+                    })
+                    .catch(error => console.log(error.message))
             })
-            .catch(error => console.log(error.message))
-
     }
 
     return (
@@ -80,26 +96,26 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type={showPassword ? "text" : "password"}
-                                 {...register('password',
-                                    {
-                                        required: true,
-                                        maxLength: 20,
-                                        minLength: 6,
-                                        pattern: /^(?=.*[A-Z])(?=.*[\W_]).*$/
-                                    })} name="password" placeholder="password" className="input input-bordered relative" />
-                                    <p onClick={()=> setShowPassword(!showPassword)}>
+                                    {...register('password',
+                                        {
+                                            required: true,
+                                            maxLength: 20,
+                                            minLength: 6,
+                                            pattern: /^(?=.*[A-Z])(?=.*[\W_]).*$/
+                                        })} name="password" placeholder="password" className="input input-bordered relative" />
+                                <p onClick={() => setShowPassword(!showPassword)}>
 
-                                        <small className=" absolute -mt-7 ml-48 md:ml-72">
-                                            {
-                                                showPassword ? <FaEyeSlash ></FaEyeSlash> :  <FaEye></FaEye>
-                                            }
-                                        </small>
-                                    </p>
+                                    <small className=" absolute -mt-7 ml-48 md:ml-72">
+                                        {
+                                            showPassword ? <FaEyeSlash ></FaEyeSlash> : <FaEye></FaEye>
+                                        }
+                                    </small>
+                                </p>
                                 {errors.password?.type === 'required' && <p className="text-red-600">Password  is required</p>}
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password  Must Be 6 character Long </p>}
                                 {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have at least one  capital letter
                                     and  a special character</p>
-                                    }
+                                }
 
 
                             </div>
@@ -107,7 +123,7 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <input className="btn text-white bg-red-500 hover:bg-black" type="submit" value="signup" />
                             </div>
-                            <p>Already Have an Account ? <Link to="/login">Login</Link></p>
+                            <p>Already Have an Account in PowerPlay Fusion Edge ? <Link to="/login">Login</Link></p>
                             <div className="divider mb-0">OR</div>
 
                         </form>

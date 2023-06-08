@@ -33,7 +33,7 @@ const Header = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5   text-4xl font-bold">Masco Cricket Performance Academy</h1>
+                                <h1 className="mb-5   text-4xl font-bold">Powerplay Fusion Edge Performance </h1>
                                 <p className="mb-5">A learning space for youths to attend high standard of cricket, athleticism & effective decision making</p>
                                 <Button buttonText={"Book A Trial Session"}></Button>
                             </div>
@@ -46,7 +46,7 @@ const Header = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-4xl font-bold">Masco Cricket Performance Academy</h1>
+                                <h1 className="mb-5 text-4xl font-bold">Powerplay Fusion Edge </h1>
                                 <p className="mb-5">A learning space for youths to attend high standard of cricket, athleticism & effective decision making</p>
                                 <Button buttonText={"Book A Trial Session"}></Button>
                             </div>
@@ -59,7 +59,7 @@ const Header = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-4xl font-bold">Masco Cricket Performance Academy</h1>
+                                <h1 className="mb-5 text-4xl font-bold">Powerplay Fusion Edge</h1>
                                 <p className="mb-5">A learning space for youths to attend high standard of cricket, athleticism & effective decision making</p>
                                 <Button buttonText={"Book A Trial Session"}></Button>
                             </div>

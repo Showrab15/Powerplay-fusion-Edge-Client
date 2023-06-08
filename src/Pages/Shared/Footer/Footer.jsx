@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import footerImage1 from '../../../assets/footer-image1.png'
 import footerImage2 from '../../../assets/footer-image2.png'
-import logo from '../../../assets/logoMasco.png'
+import logo from '../../../assets/logo.png'
 import { FaPhoneAlt, FaMapMarkerAlt ,FaEnvelope} from 'react-icons/fa';
 
 const Footer = () => {
@@ -24,7 +24,7 @@ const Footer = () => {
           <span className="text-2xl uppercase text-white font-bold">Contact Us</span> 
           <Link className="link flex items-center gap-4 link-hover"><FaPhoneAlt></FaPhoneAlt>+880 1814 356 550</Link> 
           <Link className="link flex items-center gap-4 link-hover"> <FaEnvelope></FaEnvelope>supto50showrab@gmail.com</Link> 
-          <Link className="link flex items-center gap-4 link-hover"> <FaMapMarkerAlt></FaMapMarkerAlt>Masco Academy , EPZ, Chattogram,Bangladesh</Link> 
+          <Link className="link flex items-center gap-4 link-hover"> <FaMapMarkerAlt></FaMapMarkerAlt>PowerPlay Fusion Edge , EPZ, Chattogram,Bangladesh</Link> 
         </div> 
        
         <div className="my-auto">

@@ -2,7 +2,7 @@ import { useEffect } from "react"
 
 const dynamicTitle = (title) =>{
     useEffect(()=>{
-        document.title = `${title}  -assignment-12`
+        document.title = `${title} || Powerplay Fusion Edge`
     },[title])
 }
 export default dynamicTitle

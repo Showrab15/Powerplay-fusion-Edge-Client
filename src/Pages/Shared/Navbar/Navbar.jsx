@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuthContext from '../../../hooks/useAuthContext';
 import Button from '../../../components/Button';
-
+import logo from '../../../assets/logo.png'
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -54,7 +54,7 @@ const Navbar = () => {
 
         <li>
             <NavLink
-            
+
                 to='/dashboard'
                 aria-label='Dashboard'
                 title='Dashboard'
@@ -64,17 +64,17 @@ const Navbar = () => {
             </NavLink>
         </li>
 
-        
 
 
-   <li>
-   {
+
+        <li>
+            {
                 user && <img title={user.displayName} className="w-[30px] lg:block hidden h-[30px] rounded-full mr-4" src={user.photoURL} alt="" />
             }
-   </li>
-             
+        </li>
 
-       
+
+
         <li>
             {
                 user ? <NavLink
@@ -83,7 +83,7 @@ const Navbar = () => {
                     title='logout'
                     className={({ isActive }) => (isActive ? 'active' : 'default')}
                 >
-                    <Button  buttonText={"Logout"}></Button>
+                    <Button buttonText={"Logout"}></Button>
                 </NavLink> :
                     <NavLink
                         to='/login'
@@ -95,20 +95,20 @@ const Navbar = () => {
                     </NavLink>
             }
         </li>
-    </> 
+    </>
 
     return (
         <div>
-            <div className='relative  text-white bg-[#1e293b] flex items-center justify-around'>
+            <div className='relative  text-black bg-white flex items-center justify-around'>
 
                 <NavLink
                     to='/'
-                    aria-label='project-name'
-                    title='project-name'
+                    aria-label='PowerPlay-Fusion-Edge'
+                    tittle="Powerplay Fusion Edge"
                     className='inline-flex items-center'
                 >
-                    <div className='flex items-center justify-center '>
-                        <h1 className="text-2xl font-bold">project-name</h1>
+                    <div data-tooltip="PowerPlay-Fusion-Edge" className='flex  tooltip items-center justify-center '>
+                        <img className="w-20 h-20" src={logo} alt="" />
                     </div>
 
                 </NavLink>
@@ -142,19 +142,18 @@ const Navbar = () => {
                             <div className='p-5 bg-white border rounded shadow-sm'>
                                 <div className='flex items-center justify-between mb-4'>
 
-                                    <h1 className="text-2xl font-bold">project-name</h1>
-                                    <div>
-                                        <NavLink
-                                            to='/'
-                                            aria-label='project-name'
-                                            title='project-name'
-                                            className='inline-flex items-center'
-                                        >
-                                            <div className='flex items-center justify-center '>
-                                                <img src="https://ibb.co/JKBmD8g" alt="" />
-                                            </div>
+                                    <NavLink
+                                        to='/'
+                                        aria-label='PowerPlay-Fusion-Edge'
+                                        title="PowerPlay Fusion Edge"
+                                        className='inline-flex items-center'
+                                    >
+                                        <div data-tooltip="PowerPlay-Fusion-Edge" className='flex  tooltip items-center justify-center '>
+                                            <img className="w-20 h-20" src={logo} alt="" />
+                                        </div>
 
-                                        </NavLink>
+                                    </NavLink>
+                                    <div>
                                     </div>
                                     <div>
                                         <button
@@ -174,9 +173,9 @@ const Navbar = () => {
                                 </div>
                                 <nav>
                                     <ul className='space-y-4'>
-                                         {navListOptions}
+                                        {navListOptions}
                                     </ul>
-                                   
+
                                 </nav>
                             </div>
                         </div>

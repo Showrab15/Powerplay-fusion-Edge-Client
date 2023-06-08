@@ -19,9 +19,22 @@ const SocialLogin = () => {
         signInWithGoogle(googleProvider)
             .then(result => {
                 const loggedInUser = result.user;
-                // console.log(loggedInUser);
-                Swal.fire('Any fool can use a computer')
-                navigate(from, { replace: true })
+                const name = loggedInUser.displayName;
+                const email = loggedInUser.email;
+                const savedUser = { name: name, email: email }
+                fetch('http://localhost:5000/users',  {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        Swal.fire('Account Has Been Created By Google');
+                        navigate(from, { replace: true });
+                    }
+                    )
 
             })
             .catch(error => {
