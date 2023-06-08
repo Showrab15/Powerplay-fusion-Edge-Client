@@ -19,9 +19,9 @@ const SocialLogin = () => {
         signInWithGoogle(googleProvider)
             .then(result => {
                 const loggedInUser = result.user;
-                console.log(loggedInUser);
+                // console.log(loggedInUser);
+                Swal.fire('Any fool can use a computer')
                 navigate(from, { replace: true })
-                Swal('User Login Successful By  google Account');
 
             })
             .catch(error => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuthContext from '../../../hooks/useAuthContext';
 import Button from '../../../components/Button';
 
@@ -17,43 +17,43 @@ const Navbar = () => {
 
     const navListOptions = <>
         <li>
-            <Link
+            <NavLink
                 to='/'
                 aria-label='Home'
                 title='Home'
                 className={({ isActive }) => (isActive ? 'active' : 'default')}
             >
                 Home
-            </Link>
+            </NavLink>
         </li>
 
         <li>
-            <Link
+            <NavLink
                 to='/instructors'
                 aria-label='Instructors'
                 title='Instructors'
                 className={({ isActive }) => (isActive ? 'active' : 'default')}
             >
                 Instructors
-            </Link>
+            </NavLink>
         </li>
 
 
 
         <li>
-            <Link
+            <NavLink
                 to='/classes'
                 aria-label='Classes'
                 title='Classes'
                 className={({ isActive }) => (isActive ? 'active' : 'default')}
             >
                 Classes
-            </Link>
+            </NavLink>
         </li>
 
 
         <li>
-            <Link
+            <NavLink
             
                 to='/dashboard'
                 aria-label='Dashboard'
@@ -61,7 +61,7 @@ const Navbar = () => {
                 className={({ isActive }) => (isActive ? 'active' : 'default')}
             >
                 Dashboard
-            </Link>
+            </NavLink>
         </li>
 
         
@@ -77,22 +77,22 @@ const Navbar = () => {
        
         <li>
             {
-                user ? <Link
+                user ? <NavLink
                     onClick={handleLogOut}
                     aria-label='logout'
                     title='logout'
                     className={({ isActive }) => (isActive ? 'active' : 'default')}
                 >
                     <Button  buttonText={"Logout"}></Button>
-                </Link> :
-                    <Link
+                </NavLink> :
+                    <NavLink
                         to='/login'
                         aria-label='login'
                         title='login'
                         className={({ isActive }) => (isActive ? 'active' : 'default')}
                     >
                         <Button buttonText={"Login"}></Button>
-                    </Link>
+                    </NavLink>
             }
         </li>
     </> 
@@ -101,7 +101,7 @@ const Navbar = () => {
         <div>
             <div className='relative  text-white bg-[#1e293b] flex items-center justify-around'>
 
-                <Link
+                <NavLink
                     to='/'
                     aria-label='project-name'
                     title='project-name'
@@ -111,7 +111,7 @@ const Navbar = () => {
                         <h1 className="text-2xl font-bold">project-name</h1>
                     </div>
 
-                </Link>
+                </NavLink>
                 <ul className='items-center  text-base font-medium hidden space-x-8 lg:flex'>
                     {navListOptions}
                 </ul>
@@ -144,7 +144,7 @@ const Navbar = () => {
 
                                     <h1 className="text-2xl font-bold">project-name</h1>
                                     <div>
-                                        <Link
+                                        <NavLink
                                             to='/'
                                             aria-label='project-name'
                                             title='project-name'
@@ -154,7 +154,7 @@ const Navbar = () => {
                                                 <img src="https://ibb.co/JKBmD8g" alt="" />
                                             </div>
 
-                                        </Link>
+                                        </NavLink>
                                     </div>
                                     <div>
                                         <button
