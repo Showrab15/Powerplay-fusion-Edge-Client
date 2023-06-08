@@ -54,11 +54,11 @@ const Navbar = () => {
 
         <li>
             <Link
-            data-tip="hello"
+            
                 to='/dashboard'
                 aria-label='Dashboard'
-              
-                className={({ isActive }) => (isActive ? 'active ' : 'default')}
+                title='Dashboard'
+                className={({ isActive }) => (isActive ? 'active' : 'default')}
             >
                 Dashboard
             </Link>
