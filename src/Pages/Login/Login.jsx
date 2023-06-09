@@ -8,9 +8,10 @@ import loginHeader from '../../assets/LoginHeader.jpg'
 import SectionHeader from '../../components/SectionHeader';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import dynamicTitle from '../../hooks/DynamicTitle';
 const Login = () => {
 
-
+dynamicTitle('Login')
     // const captchaRef = useRef(null);
     const [error, setError] = useState('')
     const { signIn } = useAuthContext()
@@ -53,15 +54,15 @@ const Login = () => {
         <div>
             <SectionHeader headerImage={loginHeader}
                 headerTitle={"Login"}
-                headerRoute={"Home   ||   Login"}
+                headerRoute={"Home || Login"}
             ></SectionHeader>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row">
 
-                    <div className="w-1/2 mx-auto animate-pulse">
+                    <div className="md:w-1/2 mx-auto animate-pulse">
                         <img src={loginImage} alt="" />
                     </div>
-                    <div className="card w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-orange-300  bg-base-100">
+                    <div className="card md:w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-orange-300  bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                             <div className="form-control">
@@ -94,7 +95,7 @@ const Login = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <input className="btn text-white bg-red-500 hover:bg-black" type="submit" value="signup" />
+                                <input className="btn text-white bg-red-500 hover:bg-black" type="submit" value="login" />
                             </div>
                             <p>New in PowerPlay Fusion Edge ? <Link to="/register">Register</Link></p>
                             <div className="divider mb-0">OR</div>

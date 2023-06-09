@@ -5,13 +5,28 @@ import { RouterProvider } from 'react-router-dom'
 import router from './Routes/Routes'
 import AuthProvider from './Provider/AuthProvider'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
- <AuthProvider>
-   <React.StrictMode>
-    <div className="max-w-7xl mx-auto">
-    <RouterProvider router={router} />
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
-    </div>
-  </React.StrictMode>,
- </AuthProvider>
+
+const queryClient = new QueryClient()
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+
+          <div className="max-w-screen-xl mx-auto">
+            <RouterProvider router={router} />
+
+          </div>
+        </QueryClientProvider>
+
+
+    </AuthProvider>
 )

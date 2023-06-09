@@ -66,10 +66,10 @@ const Register = () => {
             ></SectionHeader>
             <div className="hero overflow-y-auto mt-4 min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row">
-                    <div className='w-1/2 mx-auto animate-pulse'>
+                    <div className='md:w-1/2 mx-auto animate-pulse'>
                         <img src={registerImage} alt="" />
                     </div>
-                    <div className="card w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-orange-300  bg-base-100">
+                    <div className="card md:w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-orange-300  bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">

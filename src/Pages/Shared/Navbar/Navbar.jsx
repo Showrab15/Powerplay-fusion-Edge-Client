@@ -53,7 +53,7 @@ const Navbar = () => {
 
 
         <li>
-            <NavLink
+            {user && <NavLink
 
                 to='/dashboard'
                 aria-label='Dashboard'
@@ -61,7 +61,7 @@ const Navbar = () => {
                 className={({ isActive }) => (isActive ? 'active' : 'default')}
             >
                 Dashboard
-            </NavLink>
+            </NavLink>}
         </li>
 
 

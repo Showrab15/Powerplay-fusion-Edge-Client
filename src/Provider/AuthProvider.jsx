@@ -28,18 +28,20 @@ const AuthProvider = ({ children }) => {
     }
 
 
-     //user login method with google popup
-     const signInWithGoogle = () => {
+    //user login method with google popup
+    const signInWithGoogle = () => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
 
     }
 
 
-     //user information in details method
-     const userUpdateProfile = (name, photo) => {
-        return updateProfile(auth.currentUser, {
-            displayName: name, photoURL: photo
+    //user information in details method
+    const userUpdateProfile = (user, name, photo) => {
+        setLoading(true)
+        return updateProfile(user, {
+            displayName: name,
+            photoURL: photo
         })
     }
 
@@ -50,9 +52,25 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, loggedUser => {
-            setUser(loggedUser);
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+
+
+            if (currentUser) {
+                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+                    .then(data => {
+                        console.log(data.data.token)
+                        localStorage.setItem('jwt-access-token', data.data.token)
+                    })
+            }
+            else {
+                localStorage.removeItem('jwt-access-token')
+            }
+
+
             setLoading(false)
+
+
         })
 
         return () => {

@@ -10,6 +10,8 @@ const img_hosting_token = import.meta.env.VITE_Image_hosting_token;
 const AddClass = () => {
 
     const { user, loading } = useAuthContext();
+
+    // console.log(user)
     console.log(user)
     const { register, handleSubmit, reset } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
@@ -56,7 +58,7 @@ const AddClass = () => {
                         instructorEmail: instructorEmail,
                         status: "pending"
                     }
-                    console.log(newClass)
+                    // console.log(newClass)
                     fetch('http://localhost:5000/class',
                         {
                             method: 'POST',
@@ -66,12 +68,11 @@ const AddClass = () => {
                             body: JSON.stringify(newClass)
                         })
                         .then(data => {
-                            console.log('after posting new class item', data)
+                            Swal.fire('Your Class has Been Added')
+                            reset();
                             if (data.insertedId) {
-                                                              alert('addedd')
 
-                                reset();
-                              
+
                             }
                         })
                 }
@@ -89,7 +90,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Instructor  Name</span>
                         </label>
-                        <input type="text" value={user?.displayName} disabled
+                        <input type="text" readOnly defaultValue={user?.displayName}
                             {...register("instructorName")}
                             className="input input-bordered w-full " />
                     </div>
@@ -97,7 +98,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Instructor  Email</span>
                         </label>
-                        <input type="email" value={user?.email} disabled
+                        <input type="email" readOnly defaultValue={user?.email}
                             {...register("instructorEmail")}
                             className="input input-bordered w-full " />
                     </div>
