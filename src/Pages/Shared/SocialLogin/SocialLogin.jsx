@@ -29,8 +29,13 @@ const SocialLogin = () => {
                     .then(res => res.json())
                     .then(() => {
                         navigate(from, { replace: true });
-                        alert('user login successfull by google')
-                    }
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User created successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });                    }
                     )
             })
     }

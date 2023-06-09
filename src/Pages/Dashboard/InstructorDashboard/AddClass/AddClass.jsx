@@ -15,7 +15,7 @@ const AddClass = () => {
     console.log(user)
     const { register, handleSubmit, reset } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
-
+ 
 
     if (loading) {
         return <div className="flex items-center justify-center h-screen">
