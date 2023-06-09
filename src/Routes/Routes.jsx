@@ -8,7 +8,6 @@ import Dashboard from "../Pages/Dashboard/Dashbaord.jsx/Dashboard";
 import AddClass from "../Pages/Dashboard/InstructorDashboard/AddClass/AddClass";
 import AllUsers from "../Pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
 import PrivateRoute from "./PrivateRoute";
-import AllClasses from "../Pages/Dashboard/AdminDashboard/AllClasses/AllClasses";
 
 const router = createBrowserRouter([
   {
