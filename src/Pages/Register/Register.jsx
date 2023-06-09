@@ -27,14 +27,15 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                //  console.log(loggedUser);
                 userUpdateProfile(data.name, data.photo)
                     .then(() => {
                         const savedUser = { name: data.name, email: data.email }
+                        console.log(savedUser)
                         fetch('http://localhost:5000/users', {
                             method: "POST",
                             headers: {
@@ -45,7 +46,7 @@ const Register = () => {
                             .then(res => res.json())
                             .then(data => {
                                 if (data.insertedId) {
-                                    Swal.dire('user created succesfully done')
+                                    Swal.fire('Account Ha been Created Successfully')
                                     reset();
                                     navigate('/')
                                 }
@@ -55,6 +56,7 @@ const Register = () => {
                     .catch(error => console.log(error.message))
             })
     }
+
 
     return (
         <div>

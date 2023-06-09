@@ -16,7 +16,7 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 h-full bg-red-600 text-white">
           <li ><Link to="/dashboard/instructorHome"><FaHome></FaHome> Admin Home </Link></li>
                     <li><Link to="/dashboard/addClass"><FaUtensils></FaUtensils> Add A Class</Link></li>
-                    <li><Link to="/dashboard/myClass"><FaWallet></FaWallet> My  Classes</Link></li>
+                    <li><Link to="/dashboard/allUsers"><FaWallet></FaWallet> All Users  </Link></li>
                     
           </ul>
         

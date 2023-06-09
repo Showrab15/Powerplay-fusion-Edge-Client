@@ -14,15 +14,12 @@ const SocialLogin = () => {
     const googleProvider = new GoogleAuthProvider();
 
     //handle login with google login
-    const handleGoogleSignIn = () => {
-
-        signInWithGoogle(googleProvider)
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
             .then(result => {
-                const loggedInUser = result.user;
-                const name = loggedInUser.displayName;
-                const email = loggedInUser.email;
-                const savedUser = { name: name, email: email }
-                fetch('http://localhost:5000/users',  {
+                const loggedUser = result.user;
+                const savedUser = { name: loggedUser.displayName, email: loggedUser.email }
+                fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -31,21 +28,17 @@ const SocialLogin = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                        Swal.fire('Account Has Been Created By Google');
                         navigate(from, { replace: true });
+                        alert('user login successfull by google')
                     }
                     )
-
-            })
-            .catch(error => {
-                console.log(error.message)
             })
     }
 
 
     return (
         <>
-            <button onClick={handleGoogleSignIn} className="mx-auto mb-4 bg-red-500 hover:bg-black btn text-white ">Sign In With <FaGoogle className="text-primary"></FaGoogle> </button>
+            <button onClick={handleGoogleLogin} className="mx-auto mb-4 bg-red-500 hover:bg-black btn text-white ">Sign In With <FaGoogle className="text-primary"></FaGoogle> </button>
         </>
     );
 };

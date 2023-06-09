@@ -1,20 +1,84 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuthContext from '../../../../hooks/useAuthContext';
+import Swal from 'sweetalert2';
+import { BallTriangle } from 'react-loader-spinner';
+
+
+const img_hosting_token = import.meta.env.VITE_Image_hosting_token;
 
 const AddClass = () => {
 
-    const {user} = useAuthContext();
+    const { user, loading } = useAuthContext();
     console.log(user)
     const { register, handleSubmit, reset } = useForm();
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+
+
+    if (loading) {
+        return <div className="flex items-center justify-center h-screen">
+            <BallTriangle
+                height={100}
+                width={100}
+                radius={5}
+                color="#4fa94d"
+                ariaLabel="ball-triangle-loading"
+                wrapperClass={{}}
+                wrapperStyle=""
+                visible={true}
+            />
+        </div>
+
+    }
 
     const onSubmit = data => {
-const instructorName = user.displayName;
-const InstructorEmail = user.email;
-console.log(instructorName,InstructorEmail);
 
+        const formData = new FormData();
+        formData.append('image', data.image[0])
+
+        fetch(img_hosting_url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url;
+                    const { className, classPrice, availableSeats, instructorName, instructorEmail } = data;
+                    // console.log(data)
+                    const newClass =
+                    {
+                        className: className,
+                        classPrice: parseFloat(classPrice),
+                        availableSeats: parseFloat(availableSeats),
+                        image: imgURL,
+                        instructorName: instructorName,
+                        instructorEmail: instructorEmail,
+                        status: "pending"
+                    }
+                    console.log(newClass)
+                    fetch('http://localhost:5000/class',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(newClass)
+                        })
+                        .then(data => {
+                            console.log('after posting new class item', data)
+                            if (data.insertedId) {
+                                                              alert('addedd')
+
+                                reset();
+                              
+                            }
+                        })
+                }
+            })
 
     };
+
 
 
     return (
@@ -25,16 +89,16 @@ console.log(instructorName,InstructorEmail);
                         <label className="label">
                             <span className="label-text font-semibold">Instructor  Name</span>
                         </label>
-                        <input type="text" value={user?.displayName} placeholder="Instructor Name"
-                            {...register("instructorName", { required: true })}
+                        <input type="text" value={user?.displayName} disabled
+                            {...register("instructorName")}
                             className="input input-bordered w-full " />
                     </div>
                     <div className="form-control w-full mb-4">
                         <label className="label">
                             <span className="label-text font-semibold">Instructor  Email</span>
                         </label>
-                        <input type="email" value={user?.email} placeholder="Instructor Email"
-                            {...register("instructorEmail", { required: true })}
+                        <input type="email" value={user?.email} disabled
+                            {...register("instructorEmail")}
                             className="input input-bordered w-full " />
                     </div>
                 </div>
@@ -52,7 +116,7 @@ console.log(instructorName,InstructorEmail);
                         <label className="label">
                             <span className="label-text">Class Image</span>
                         </label>
-                        <input type="file" {...register("classImage", { required: true })} className="file-input file-input-bordered w-full " />
+                        <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full " />
                     </div>
                 </div>
                 <div className="md:flex gap-8 my-4">
@@ -60,7 +124,7 @@ console.log(instructorName,InstructorEmail);
                         <label className="label">
                             <span className="label-text font-semibold">Available  Seats</span>
                         </label>
-                        <input type="text" placeholder="Available  Seats"
+                        <input type="number" placeholder="Available  Seats"
                             {...register("availableSeats", { required: true })}
                             className="input input-bordered w-full " />
                     </div>
@@ -68,7 +132,7 @@ console.log(instructorName,InstructorEmail);
                         <label className="label">
                             <span className="label-text font-semibold">Class  Price</span>
                         </label>
-                        <input type="email" placeholder="Class  Price"
+                        <input type="number" placeholder="Class  Price"
                             {...register("classPrice", { required: true })}
                             className="input input-bordered w-full " />
                     </div>
