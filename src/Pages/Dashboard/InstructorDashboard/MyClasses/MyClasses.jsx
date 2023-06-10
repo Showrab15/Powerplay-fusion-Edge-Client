@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import useAxiosSecure from '../../../../hooks/useAxiosSecure';
-import SectionTitle from '../../../../components/SectionTitle';
-import { useQuery } from '@tanstack/react-query';
-import useClasses from '../../../../hooks/useClasses';
+import useClasses from "../../../../hooks/useClasses";
 
-const AllClasses = () => {
+
+const MyClasses = () => {
 
   const [classes] = useClasses()
     return (
         <div className="w-full">
-            <h2 className="text-center font-bold text-3xl">All Classes of Powerplay Fusion Edge</h2>
+            <h2 className="text-center font-bold text-3xl">My  Classes In Powerplay Fusion Edge</h2>
 
             <div>
            <div className="overflow-x-auto mt-4">
@@ -33,7 +30,7 @@ const AllClasses = () => {
      <td>
          <div className="avatar">
            <div className="mask mask-squircle w-12 h-12">
-             <img src={singleClass.classImage} alt="Avatar Tailwind CSS Component" />
+             <img src={singleClass.image} alt="Avatar Tailwind CSS Component" />
            </div>
          </div>
        
@@ -46,12 +43,10 @@ const AllClasses = () => {
      <td>${singleClass.classPrice}</td>
      <td>{singleClass.availableSeats}</td>
      <td>
-     <div className="flex flex-col gap-2   items-center space-x-3">
+    
 
-     <button className="btn btn-success btn-xs">Approve</button>
-     <button className="btn  btn-error btn-xs">Deny</button>
-     <button className="btn  btn-primary btn-xs">Feedback</button>
-     </div>
+     <button className="btn btn-success btn-xs">{singleClass.status}</button>
+  
      </td>
 
    </tr>
@@ -68,4 +63,4 @@ const AllClasses = () => {
     );
 };
 
-export default AllClasses;
+export default MyClasses;

@@ -6,12 +6,30 @@ import AdminDashboard from '../AdminDashboard/AdminDashboard';
 import InstructorDashboard from '../InstructorDashboard/InstructorDashboard';
 import StudentDashBoard from '../StudentDashBoard/StudentDashBoard';
 import useInstructor from '../../../hooks/useInstructor';
+import useAuthContext from '../../../hooks/useAuthContext';
+import { BallTriangle } from  'react-loader-spinner'
 
 const Dashboard = () => {
 
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
+// const {loading} = useAuthContext();
 
+// if(loading){
+//   return <div className="flex items-center justify-center h-screen">
+//   <BallTriangle
+
+// height={100}
+// width={100}
+// radius={5}
+// color="#4fa94d"
+// ariaLabel="ball-triangle-loading"
+// wrapperClass={{}}
+// wrapperStyle=""
+// visible={true}
+// />
+//   </div>
+// }
 
   return (
     <div className="drawer  lg:drawer-open">

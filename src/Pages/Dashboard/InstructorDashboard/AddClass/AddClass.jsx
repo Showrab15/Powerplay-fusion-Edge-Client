@@ -59,7 +59,7 @@ const AddClass = () => {
                         status: "pending"
                     }
                     // console.log(newClass)
-                    fetch('http://localhost:5000/class',
+                    fetch('http://localhost:5000/addClasses',
                         {
                             method: 'POST',
                             headers: {

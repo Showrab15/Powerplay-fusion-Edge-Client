@@ -8,6 +8,9 @@ import Dashboard from "../Pages/Dashboard/Dashbaord.jsx/Dashboard";
 import AddClass from "../Pages/Dashboard/InstructorDashboard/AddClass/AddClass";
 import AllUsers from "../Pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./instructorRoute";
+import AllClasses from "../Pages/Dashboard/AdminDashboard/AllClasses/AllClasses";
 
 const router = createBrowserRouter([
   {
@@ -35,11 +38,15 @@ const router = createBrowserRouter([
           //instructor routes
           {
           path: 'addClass',
-          element: <PrivateRoute><AddClass></AddClass></PrivateRoute>
+          element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
           },
           {
             path : 'allUsers',
-            element : <PrivateRoute><AllUsers></AllUsers></PrivateRoute>
+            element : <AdminRoute> <AllUsers></AllUsers></AdminRoute>
+          },
+          {
+            path : 'allClasses',
+            element : <AdminRoute><AllClasses></AllClasses></AdminRoute>
           }
         ]
         }
