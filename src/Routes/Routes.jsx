@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./instructorRoute";
 import AllClasses from "../Pages/Dashboard/AdminDashboard/AllClasses/AllClasses";
+import MyClasses from "../Pages/Dashboard/InstructorDashboard/MyClasses/MyClasses";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
           {
           path: 'addClass',
           element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+          },
+          {
+            path: 'myClass',
+            element : <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
           },
           {
             path : 'allUsers',

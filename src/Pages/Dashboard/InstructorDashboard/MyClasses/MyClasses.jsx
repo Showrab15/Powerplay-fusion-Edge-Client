@@ -1,9 +1,12 @@
 import useClasses from "../../../../hooks/useClasses";
+import useMyClass from "../../../../hooks/useMyClass";
 
 
 const MyClasses = () => {
 
-  const [classes] = useClasses()
+
+  const [instructorClass] = useMyClass();
+  console.log(instructorClass)
     return (
         <div className="w-full">
             <h2 className="text-center font-bold text-3xl">My  Classes In Powerplay Fusion Edge</h2>
@@ -24,7 +27,7 @@ const MyClasses = () => {
       </tr>
     </thead>
     <tbody>
-    {classes.map((singleClass, index) => 
+    {instructorClass.map((singleClass, index) => 
      <tr key={singleClass._id}>
      <th>{index+1}</th>
      <td>
