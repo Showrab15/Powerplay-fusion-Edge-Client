@@ -41,7 +41,7 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 bg-red-600 h-32 text-white">
+        <ul className="menu p-4 w-80  bg-rose-600 h-32 text-white">
 
           {
             isAdmin ?

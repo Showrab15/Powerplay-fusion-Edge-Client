@@ -10,19 +10,19 @@ const Sponsors = () => {
             <SectionTitle
             heading={"OUR SPONSOR"}
             ></SectionTitle>
-            <div className="grid md:grid-cols-4 grid-cols-2 group  gap-8">
+            <div className="grid md:grid-cols-4 grid-cols-2 group  mt-8 gap-8">
 
                 <div>
-                    <img className='hover:animate-pulse  group-hover:scale-110 transition' src={sponsor1} alt="" />
+                    <img className='hover:animate-pulse rounded-lg  group-hover:scale-110 transition' src={sponsor1} alt="" />
                 </div>
                 <div>
-                    <img  className='hover:animate-pulse group-hover:scale-110' src={sponsor2} alt="" />
+                    <img  className='hover:animate-pulse rounded-lg group-hover:scale-110' src={sponsor2} alt="" />
                 </div>
                 <div>
-                    <img className='hover:animate-pulse group-hover:scale-110' src={sponsor3} alt="" />
+                    <img className='hover:animate-pulse rounded-lg group-hover:scale-110' src={sponsor3} alt="" />
                 </div>
                 <div>
-                    <img  className='hover:animate-pulse group-hover:scale-110 ' src={sponsor4} alt="" />
+                    <img  className='hover:animate-pulse rounded-lg group-hover:scale-110 ' src={sponsor4} alt="" />
                 </div>
             </div>
         </div>

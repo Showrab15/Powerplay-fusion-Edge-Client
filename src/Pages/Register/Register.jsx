@@ -68,7 +68,7 @@ const Register = () => {
 
 
     return (
-        <div>
+        <div className="bg-rose-600 rounded-lg">
             <SectionHeader headerImage={registerHeader}
                 headerTitle={"Register"}
                 headerRoute={"Home   ||   Register"}
@@ -78,28 +78,28 @@ const Register = () => {
                     <div className='md:w-1/2 mx-auto animate-pulse'>
                         <img src={registerImage} alt="" />
                     </div>
-                    <div className="card md:w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-orange-300  bg-base-100">
+                    <div className="card md:w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-rose-600  bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="name" {...register('name', { required: true })} name="name" placeholder="name" className="input input-bordered" />
-                                {errors.name && <p className="text-red-600">Please enter a name.</p>}
+                                {errors.name && <p className="text-rose-600">Please enter a name.</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
                                 <input type="name" {...register('photo', { required: true })} name="photo" placeholder="photo url" className="input input-bordered" />
-                                {errors.photo && <p className="text-red-600">Please enter a photo url.</p>}
+                                {errors.photo && <p className="text-rose-600">Please enter a photo url.</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" {...register('email', { required: true })} name="email" placeholder="email" className="input input-bordered" />
-                                {errors.email && <p className="text-red-600">Please enter a valid email.</p>}
+                                {errors.email && <p className="text-rose-600">Please enter a valid email.</p>}
 
                             </div>
                             <div className="form-control ">
@@ -122,9 +122,9 @@ const Register = () => {
                                         }
                                     </small>
                                 </p>
-                                {errors.password?.type === 'required' && <p className="text-red-600">Password  is required</p>}
-                                {errors.password?.type === 'minLength' && <p className="text-red-600">Password  Must Be 6 character Long </p>}
-                                {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have at least one  capital letter
+                                {errors.password?.type === 'required' && <p className="text-rose-600">Password  is required</p>}
+                                {errors.password?.type === 'minLength' && <p className="text-rose-600">Password  Must Be 6 character Long </p>}
+                                {errors.password?.type === 'pattern' && <p className="text-rose-600">Password must have at least one  capital letter
                                     and  a special character</p>
                                 }
 
@@ -132,7 +132,7 @@ const Register = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <input className="btn text-white bg-red-500 hover:bg-black" type="submit" value="signup" />
+                                <input className="btn text-white " type="submit" value="signup" />
                             </div>
                             <p>Already Have an Account in PowerPlay Fusion Edge ? <Link to="/login">Login</Link></p>
                             <div className="divider mb-0">OR</div>

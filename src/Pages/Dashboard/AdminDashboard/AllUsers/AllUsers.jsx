@@ -124,10 +124,10 @@ const AllUsers = () => {
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.role === 'admin' ? 'admin' :
-                                        <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-red-600  text-white"><FaUserShield></FaUserShield></button>
+                                        <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost  bg-rose-600  text-white"><FaUserShield></FaUserShield></button>
                                     }</td>
                                     <td>{user.role === 'instructor' ? 'instructor' :
-                                        <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-red-600  text-white"><FaChalkboardTeacher></FaChalkboardTeacher></button>
+                                        <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost  bg-rose-600  text-white"><FaChalkboardTeacher></FaChalkboardTeacher></button>
                                     }</td>
                                 </tr>
 

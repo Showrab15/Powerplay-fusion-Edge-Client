@@ -51,7 +51,7 @@ dynamicTitle('Login')
 
 
     return (
-        <div>
+        <div className="bg-rose-600 rounded-lg">
             <SectionHeader headerImage={loginHeader}
                 headerTitle={"Login"}
                 headerRoute={"Home || Login"}
@@ -62,7 +62,7 @@ dynamicTitle('Login')
                     <div className="md:w-1/2 mx-auto animate-pulse">
                         <img src={loginImage} alt="" />
                     </div>
-                    <div className="card md:w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-orange-300  bg-base-100">
+                    <div className="card md:w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-rose-600  bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                             <div className="form-control">
@@ -70,7 +70,7 @@ dynamicTitle('Login')
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" {...register('email', { required: true })} name="email" placeholder="email" className="input input-bordered" />
-                                {errors.email && <p className="text-red-600">Please enter a valid email.</p>}
+                                {errors.email && <p className="text-rose-600">Please enter a valid email.</p>}
 
                             </div>
                             <div className="form-control ">
@@ -95,7 +95,7 @@ dynamicTitle('Login')
                             </div>
 
                             <div className="form-control mt-6">
-                                <input className="btn text-white bg-red-500 hover:bg-black" type="submit" value="login" />
+                                <input className="btn text-white " type="submit" value="login" />
                             </div>
                             <p>New in PowerPlay Fusion Edge ? <Link to="/register">Register</Link></p>
                             <div className="divider mb-0">OR</div>

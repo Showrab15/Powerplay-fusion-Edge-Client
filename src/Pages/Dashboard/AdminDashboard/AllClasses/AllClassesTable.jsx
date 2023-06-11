@@ -106,15 +106,15 @@ const [modalOpen, setModalOpen] = useState(false);
                     <dialog id={`my_modal_${singleClass._id}`} open={modalOpen} className="modal">
 
                         <div method="dialog">
-                            <button className="btn btn-xs text-white bg-gray-500 hover:bg-black" onClick={closeModal}>✕</button>
+                            <button className="btn btn-xs text-white bg-gray-600 hover:bg-black" onClick={closeModal}>✕</button>
                             <form onSubmit={sendFeedback} className="modal-box">
                                 <input
                                     name='feedback'
                                     placeholder="Write your feedback here..."
                                     rows="4"
-                                    className="w-full p-2 mt-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full p-2 mt-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 ></input>
-                                <input className="btn text-white bg-red-500 hover:bg-black" type="submit" value="feedback" />
+                                <input className="btn text-white bg-rose-600 hover:bg-black" type="submit" value="feedback" />
                             </form>
                         </div>
                     </dialog>

@@ -11,7 +11,7 @@ import headerImage3 from '../../assets/headerImage5.jpg'
 import Button from "../../components/Button";
 const Header = () => {
     return (
-        <div>
+        <div className="rounded-lg">
 
             <Swiper
                 spaceBetween={30}
@@ -29,11 +29,11 @@ const Header = () => {
             >
 
                 <SwiperSlide >
-                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${headerImage1})` }}>
+                    <div className="hero min-h-screen rounded-lg" style={{ backgroundImage: `url(${headerImage1})` }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5   text-4xl font-bold">Powerplay Fusion Edge Performance </h1>
+                                <h1 className="mb-5   text-4xl font-bold">Powerplay Fusion Edge  </h1>
                                 <p className="mb-5">A learning space for youths to attend high standard of cricket, athleticism & effective decision making</p>
                                 <Button buttonText={"Book A Trial Session"}></Button>
                             </div>
@@ -42,11 +42,11 @@ const Header = () => {
                 </SwiperSlide>
 
                 <SwiperSlide >
-                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${headerImage2})` }}>
+                    <div className="hero min-h-screen rounded-lg" style={{ backgroundImage: `url(${headerImage2})` }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-4xl font-bold">Powerplay Fusion Edge </h1>
+                                <h1 className="mb-5 text-4xl font-bold ">Powerplay Fusion Edge </h1>
                                 <p className="mb-5">A learning space for youths to attend high standard of cricket, athleticism & effective decision making</p>
                                 <Button buttonText={"Book A Trial Session"}></Button>
                             </div>
@@ -55,7 +55,7 @@ const Header = () => {
                 </SwiperSlide>
 
                 <SwiperSlide >
-                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${headerImage3})` }}>
+                    <div className="hero min-h-screen rounded-lg" style={{ backgroundImage: `url(${headerImage3})` }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">

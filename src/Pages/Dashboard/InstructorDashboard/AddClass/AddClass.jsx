@@ -139,7 +139,7 @@ const AddClass = () => {
                     </div>
                 </div>
                 <div className="w-full mx-auto flex justify-center">
-                    <input className="btn bg-red-600 hover:bg-black border-0 text-white w-full" type="submit" value="Add Class" />
+                    <input className="btn  bg-rose-600 hover:bg-black border-0 text-white w-full" type="submit" value="Add Class" />
                 </div>
             </form>
         </div>

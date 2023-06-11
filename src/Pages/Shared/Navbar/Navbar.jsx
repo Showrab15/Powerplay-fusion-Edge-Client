@@ -102,7 +102,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className='relative  text-black bg-white flex items-center justify-around'>
+            <div className='relative rounded-lg  text-white bg-rose-600 flex items-center justify-around'>
 
                 <NavLink
                     to='/'

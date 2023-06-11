@@ -7,14 +7,14 @@ import { FaPhoneAlt, FaMapMarkerAlt ,FaEnvelope} from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="footer   gap-10 mt-8 p-4 bg-red-600 text-white">
+        <footer className="footer rounded-lg  gap-10 mt-8 p-4  bg-rose-600 text-white">
         <div className="my-auto">
           <img className="w-80 h-64 animate-pulse" src={footerImage1} alt="" />
         </div> 
         <div className="my-auto md:mr-12" >
           <img src={logo} alt="" />
         </div>
-     <div className="my-auto">
+     <div className="my-auto  bg-rose-600">
           <span className="text-2xl uppercase font-bold text-white">Quick Links</span> 
           <Link className="link link-hover">About us</Link> 
           <Link className="link link-hover">Contact</Link> 
