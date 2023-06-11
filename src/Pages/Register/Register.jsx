@@ -26,45 +26,97 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const from = location.state?.from?.pathname || '/';
 
-    const onSubmit = data => {
+    // const onSubmit = data => {
+
+    //     createUser(data.email, data.password)
+    //         .then(result => {
+
+    //             const loggedUser = result.user;
+    //             console.log(loggedUser);
+
+    //             userUpdateProfile(data.name, data.photoURL)
+    //                 .then(() => {
+    //                     const saveUser = { name: data.name, email: data.email, photo: data.photo}
+    //                     fetch('http://localhost:5000/users', {
+    //                         method: 'POST',
+    //                         headers: {
+    //                             'content-type': 'application/json'
+    //                         },
+    //                         body: JSON.stringify(saveUser)
+    //                     })
+    //                         .then(res => res.json())
+    //                         .then(data => {
+    //                             if (data.insertedId) {
+    //                                 reset();
+    //                                 Swal.fire({
+    //                                     position: 'center',
+    //                                     icon: 'success',
+    //                                     title: 'Your Account Has Been Created In Powerplay Fusion Edge',
+    //                                 });
+    //                                 navigate(from, { replace: true });
+    //                             }
+    //                         })
+
+
+
+    //                 })
+    //                 .catch(error => console.log(error))
+    //         })
+    // };
+
+
+
+
+
+
+const [confirmPassword, setConfirmPassword] = useState('');
+
+
+
+
+
+const onSubmit = (data) => {
+        console.log(data);
+        if (data.password !== confirmPassword) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Confirm Password  Must Be Matched With Password....',
+                text: 'Passwords does not match.....',
+            });
+            return;
+        }
 
         createUser(data.email, data.password)
-            .then(result => {
-
+            .then((result) => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
 
-                userUpdateProfile(data.name, data.photoURL)
+                userUpdateProfile( data.name, data.photo)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email, photo: data.photo}
+                        const saveUser = { name: data.name, email: data.email };
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
-                                'content-type': 'application/json'
+                                'content-type': 'application/json',
                             },
-                            body: JSON.stringify(saveUser)
+                            body: JSON.stringify(saveUser),
                         })
-                            .then(res => res.json())
-                            .then(data => {
+                            .then((res) => res.json())
+                            .then((data) => {
                                 if (data.insertedId) {
                                     reset();
-                                    Swal.fire({
-                                        position: 'center',
-                                        icon: 'success',
-                                        title: 'Your Account Has Been Created In Powerplay Fusion Edge',
-                                    });
-                                    navigate(from, { replace: true });
+                                     Swal.fire({
+                                         position: 'center',
+                                         icon: 'success',
+                                         title: 'Your Account Has Been Created In Powerplay Fusion Edge',
+                                     });
+                                    navigate('/');
                                 }
-                            })
-
-
-
+                            });
                     })
-                    .catch(error => console.log(error))
-            })
+                    .catch((error) => console.log(error));
+            });
     };
-
-
 
     return (
         <div className="bg-rose-600 rounded-lg">
@@ -129,7 +181,22 @@ const Register = () => {
 
 
                             </div>
-
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Confirm Password</span>
+                                </label>
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    name="confirmPassword"
+                                    placeholder="confirm password"
+                                    className="input input-bordered relative"
+                                />
+                                {errors.confirmPassword && (
+                                    <p className="text-red-600">Please confirm your password.</p>
+                                )}
+                            </div>
                             <div className="form-control mt-6">
                                 <input className="btn text-white " type="submit" value="signup" />
                             </div>

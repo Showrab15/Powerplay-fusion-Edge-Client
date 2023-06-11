@@ -13,23 +13,6 @@ const Dashboard = () => {
 
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
-// const {loading} = useAuthContext();
-
-// if(loading){
-//   return <div className="flex items-center justify-center h-screen">
-//   <BallTriangle
-
-// height={100}
-// width={100}
-// radius={5}
-// color="#4fa94d"
-// ariaLabel="ball-triangle-loading"
-// wrapperClass={{}}
-// wrapperStyle=""
-// visible={true}
-// />
-//   </div>
-// }
 
   return (
     <div className="drawer  lg:drawer-open">
@@ -41,7 +24,7 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80  bg-rose-600 h-32 text-white">
+        <ul className="menu p-4 w-4/3  bg-rose-600 h-full rounded-lg mt-2 text-white">
 
           {
             isAdmin ?

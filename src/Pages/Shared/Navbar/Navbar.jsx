@@ -4,6 +4,8 @@ import useAuthContext from '../../../hooks/useAuthContext';
 import Button from '../../../components/Button';
 import logo from '../../../assets/logo.png'
 import Theme from '../../../components/Theme';
+import useAdmin from '../../../hooks/useAdmin';
+import useInstructor from '../../../hooks/useInstructor';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -15,7 +17,8 @@ const Navbar = () => {
             .catch(error => console.log(error));
     }
    
-
+const [isAdmin] = useAdmin();
+const [ isInstructor] = useInstructor();
     const navListOptions = <>
         <li>
             <NavLink
@@ -31,8 +34,8 @@ const Navbar = () => {
         <li>
             <NavLink
                 to='/instructors'
-                aria-label='Instructors'
-                title='Instructors'
+                aria-label='instructors'
+                title='instructors'
                 className={({ isActive }) => (isActive ? 'active' : 'default')}
             >
                 Instructors
@@ -56,7 +59,7 @@ const Navbar = () => {
         <li>
             {user && <NavLink
 
-                to='/dashboard'
+                to={`${isAdmin ? 'dashboard/allUsers' : isInstructor ? 'dashboard/myClass' :  'dashboard/mySelectedClass' }`}
                 aria-label='Dashboard'
                 title='Dashboard'
                 className={({ isActive }) => (isActive ? 'active' : 'default')}

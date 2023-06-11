@@ -10,7 +10,7 @@ const img_hosting_token = import.meta.env.VITE_Image_hosting_token;
 const AddClass = () => {
 
     const { user, loading } = useAuthContext();
-
+console.log(user)
     // console.log(user)
     console.log(user)
     const { register, handleSubmit, reset } = useForm();
@@ -68,8 +68,12 @@ const AddClass = () => {
                             body: JSON.stringify(newClass)
                         })
                         .then(data => {
-                            Swal.fire('Your Class has Been Added')
-                            reset();
+                            Swal.fire(
+                                'Thank You For Add Your Awesome Class',
+                                'Your Awesome Class will be displayed in Powerplay Fusion Edge After Aprroved By Admin',
+                                'success'
+                              )
+                              reset();
                             if (data.insertedId) {
 
 
@@ -90,7 +94,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Instructor  Name</span>
                         </label>
-                        <input type="text" readOnly defaultValue={user?.displayName}
+                        <input type="text"  defaultValue={user?.displayName}
                             {...register("instructorName")}
                             className="input input-bordered w-full " />
                     </div>

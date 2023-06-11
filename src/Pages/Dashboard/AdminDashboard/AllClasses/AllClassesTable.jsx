@@ -65,9 +65,9 @@ const [modalOpen, setModalOpen] = useState(false);
           if (data.modifiedCount) {
             form.reset();
             Swal.fire({
-              position: 'top-end',
+              position: 'center',
               icon: 'success',
-              title: `Your Class Approved !`,
+              title: `Feedback Sent For ${singleClass.instructorName}' Class!`,
               showConfirmButton: false,
               timer: 1500
             })
@@ -102,19 +102,20 @@ const [modalOpen, setModalOpen] = useState(false);
                       <button onClick={() => handleApproved(singleClass._id, "approved")} disabled={singleClass.status === 'deny' || singleClass.status === 'approved'} className="btn btn-success btn-xs">Approve</button>
                       <button className="btn  btn-error btn-xs" onClick={() => handleApproved(singleClass._id, "deny")} disabled={singleClass.status === 'deny' || singleClass.status === 'approved'} >deny</button>
                       {/* Open the modal using ID.showModal() method */}
-                      <button className="btn btn-xs" onClick={() => showModal(singleClass._id)}>open modal</button>
+                      <button className="btn btn-xs" onClick={() => showModal(singleClass._id)}>Feedback</button>
                     <dialog id={`my_modal_${singleClass._id}`} open={modalOpen} className="modal">
 
                         <div method="dialog">
                             <button className="btn btn-xs text-white bg-gray-600 hover:bg-black" onClick={closeModal}>✕</button>
                             <form onSubmit={sendFeedback} className="modal-box">
                                 <input
+                                required
                                     name='feedback'
                                     placeholder="Write your feedback here..."
                                     rows="4"
                                     className="w-full p-2 mt-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 ></input>
-                                <input className="btn text-white bg-rose-600 hover:bg-black" type="submit" value="feedback" />
+                                <input className="btn mt-4 text-white btn-sm" type="submit" value="feedback" />
                             </form>
                         </div>
                     </dialog>
