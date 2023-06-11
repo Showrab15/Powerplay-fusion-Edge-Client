@@ -33,8 +33,8 @@ const ShortSuccessList = () => {
             <SectionTitle
             heading={"Our Short Success "}
             ></SectionTitle>
-            <div className="grid md:grid-cols-4 mt-8 group gap-8">
-                <div className="card  hover: bg-rose-600  group-hover:scale-110 transition hover:shadow-2xl">
+            <div className="success-grid">
+                <div className="success-card">
                     <div className="card-body">
                         <div className="md:flex items ">
                             <FaHandshake className="w-20 h-20"></FaHandshake>
@@ -45,7 +45,7 @@ const ShortSuccessList = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card hover: bg-rose-600 group-hover:scale-110 transition hover:shadow-2xl">
+                <div className="success-card">
                     <div className="card-body">
                         <div className="md:flex items ">
                             <FaWarehouse className="w-20 h-20"></FaWarehouse>
@@ -56,7 +56,7 @@ const ShortSuccessList = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card  hover: bg-rose-600 group-hover:scale-110 transition hover:shadow-2xl">
+                <div className="success-card">
                     <div className="card-body">
                         <div className="md:flex items ">
                             <FaCampground className="w-20 h-20"></FaCampground>
@@ -67,7 +67,7 @@ const ShortSuccessList = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card  hover: bg-rose-600  group-hover:scale-110 transition hover:shadow-2xl">
+                <div className="success-card">
                     <div className="card-body">
                         <div className="md:flex items ">
                             <FaBook className="w-20 h-20"></FaBook>

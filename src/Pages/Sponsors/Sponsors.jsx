@@ -10,7 +10,7 @@ const Sponsors = () => {
             <SectionTitle
             heading={"OUR SPONSOR"}
             ></SectionTitle>
-            <div className="grid md:grid-cols-4 grid-cols-2 group  mt-8 gap-8">
+            <div className="grid md:grid-cols-4 group  mt-8 gap-8">
 
                 <div>
                     <img className='hover:animate-pulse rounded-lg  group-hover:scale-110 transition' src={sponsor1} alt="" />
