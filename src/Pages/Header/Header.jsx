@@ -11,7 +11,7 @@ import headerImage3 from '../../assets/headerImage5.jpg'
 import Button from "../../components/Button";
 const Header = () => {
     return (
-        <div className="rounded-lg">
+        <div className="rounded-t-lg rounded-b-lg rounded-l-lg rounded-r-lg">
 
             <Swiper
                 spaceBetween={30}
@@ -25,11 +25,11 @@ const Header = () => {
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
+                className="mySwiper rounded-t-lg rounded-b-lg rounded-l-lg rounded-r-lg"
             >
 
                 <SwiperSlide >
-                    <div className="hero min-h-screen rounded-lg" style={{ backgroundImage: `url(${headerImage1})` }}>
+                    <div className="hero min-h-screen rounded-t-lg rounded-b-lg rounded-l-lg rounded-r-lg" style={{ backgroundImage: `url(${headerImage1})` }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
