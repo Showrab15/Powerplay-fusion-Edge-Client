@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuthContext from '../../../hooks/useAuthContext';
 import { FaGoogle } from 'react-icons/fa';
-import { GoogleAuthProvider } from 'firebase/auth';
 
 const SocialLogin = () => {
 
@@ -11,14 +10,14 @@ const SocialLogin = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    const googleProvider = new GoogleAuthProvider();
 
     //handle login with google login
     const handleGoogleLogin = () => {
         signInWithGoogle()
             .then(result => {
                 const loggedUser = result.user;
-                const savedUser = { name: loggedUser.displayName, email: loggedUser.email }
+                console.log(loggedUser)
+                const savedUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL }
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
@@ -27,15 +26,19 @@ const SocialLogin = () => {
                     body: JSON.stringify(savedUser)
                 })
                     .then(res => res.json())
-                    .then(() => {
-                        navigate(from, { replace: true });
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'User created successfully.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });                    }
+                    .then((data) => {
+                        console.log(data)
+                        if (data.insertedId) {
+                            reset();
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Account Login Successfully By Google',
+                            });
+                            navigate(from, { replace: true });
+                        }
+
+                    }
                     )
             })
     }

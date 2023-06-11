@@ -72,7 +72,7 @@ const Navbar = () => {
 
         <li>
             {
-                user && <img title={user.displayName} className="w-[30px] lg:block hidden h-[30px] rounded-full mr-4" src={user.photoURL} alt="" />
+                user && <img title={user.displayName} referrerPolicy='no-referrer' className="w-[30px] lg:block hidden h-[30px] rounded-full mr-4" src={user.photoURL} alt="" />
             }
         </li>
 
@@ -102,7 +102,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className='relative rounded-lg  text-white bg-rose-600 flex items-center justify-around'>
+            <div className='relative rounded-lg  text-black bg-rose-600 flex items-center justify-around'>
 
                 <NavLink
                     to='/'

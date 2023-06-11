@@ -21,3 +21,7 @@
 .success-card{
     @apply card  glass hover:scale-110 transition hover:bg-rose-600
 }
+
+.authentication-card{
+    @apply card md:w-1/2 flex-shrink-0 max-w-sm glass  outline outline-offset-2 outline-rose-600  bg-base-100
+}

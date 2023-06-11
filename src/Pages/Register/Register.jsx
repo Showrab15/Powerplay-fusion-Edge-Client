@@ -24,6 +24,7 @@ const Register = () => {
     const { createUser, userUpdateProfile } = useAuthContext();
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+    const from = location.state?.from?.pathname || '/';
 
     const onSubmit = data => {
 
@@ -35,7 +36,7 @@ const Register = () => {
 
                 userUpdateProfile(data.name, data.photoURL)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email }
+                        const saveUser = { name: data.name, email: data.email, photo: data.photo}
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
@@ -48,13 +49,11 @@ const Register = () => {
                                 if (data.insertedId) {
                                     reset();
                                     Swal.fire({
-                                        position: 'top-end',
+                                        position: 'center',
                                         icon: 'success',
-                                        title: 'User created successfully.',
-                                        showConfirmButton: false,
-                                        timer: 1500
+                                        title: 'Your Account Has Been Created In Powerplay Fusion Edge',
                                     });
-                                    navigate('/');
+                                    navigate(from, { replace: true });
                                 }
                             })
 
@@ -78,7 +77,7 @@ const Register = () => {
                     <div className='md:w-1/2 mx-auto animate-pulse'>
                         <img src={registerImage} alt="" />
                     </div>
-                    <div className="card md:w-1/2 flex-shrink-0 max-w-sm   outline outline-offset-2 outline-rose-600  bg-base-100">
+                    <div className="authentication-card">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">

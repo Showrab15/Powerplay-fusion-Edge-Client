@@ -18,39 +18,6 @@ const AllUsers = () => {
     })
 
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/users')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //              console.log(data)
-    //             setUsers(data)
-    //         })
-    // }, [axiosSecure])
-
-
-    // const handleMakeAdmin = user => {
-    //     // console.log('hello')
-    //     fetch(`http://localhost:5000/users/admin/${user._id}`, {
-    //         method: 'PATCH'
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             if (data.modifiedCount) {
-
-    //                 Swal.fire({
-    //                     position: 'center',
-    //                     icon: 'success',
-    //                     title: `${user.name} is an Admin Now!`,
-    //                     showConfirmButton: false,
-    //                     timer: 2000
-    //                 })
-    //                 const remaining = users.filter(user => user._id !== user._id);
-    //                 setUsers(remaining)
-    //             }
-    //         })
-    // }
-
 
 
 
@@ -64,7 +31,7 @@ const AllUsers = () => {
             if(data.modifiedCount){
                 refetch();
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'success',
                     title: `${user.name} is an Admin Now!`,
                     showConfirmButton: false,
@@ -88,9 +55,9 @@ const AllUsers = () => {
             if(data.modifiedCount){
                 refetch();
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'success',
-                    title: `${user.name} is an Admin Now!`,
+                    title: `${user.name} is an Instructor Now!`,
                     showConfirmButton: false,
                     timer: 1500
                   })
@@ -112,6 +79,7 @@ const AllUsers = () => {
                             <th>#</th>
                             <th>Users Name</th>
                             <th>Users Email</th>
+                            <th>Users Role</th>
                             <th>Make Admin</th>
                             <th>Make  Instructor</th>
                         </tr>
@@ -123,12 +91,13 @@ const AllUsers = () => {
                                     <th>{index + 1}</th>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
-                                    <td>{user.role === 'admin' ? 'admin' :
-                                        <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost  bg-rose-600  text-white"><FaUserShield></FaUserShield></button>
-                                    }</td>
-                                    <td>{user.role === 'instructor' ? 'instructor' :
-                                        <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost  bg-rose-600  text-white"><FaChalkboardTeacher></FaChalkboardTeacher></button>
-                                    }</td>
+                                    <td> {user.role ? user.role : 'Student'}</td>
+                                    <td>
+                                        <button disabled={user.role ==='instructor' || user.role === 'admin'} onClick={() => handleMakeAdmin(user)} className="btn btn-ghost  bg-rose-600  text-white"><FaUserShield></FaUserShield></button>
+                                    </td>
+                                    <td>
+                                        <button disabled={user.role ==='admin' || user.role ==='instructor'} onClick={() => handleMakeInstructor(user)} className="btn btn-ghost  bg-rose-600  text-white"><FaChalkboardTeacher></FaChalkboardTeacher></button>
+                                    </td>
                                 </tr>
 
                             )

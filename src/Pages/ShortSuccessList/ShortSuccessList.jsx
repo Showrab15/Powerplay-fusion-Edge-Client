@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaHandshake,FaWarehouse ,FaCampground, FaBook} from 'react-icons/fa';
+import { FaHandshake, FaWarehouse, FaCampground, FaBook } from 'react-icons/fa';
 import SectionTitle from '../../components/SectionTitle';
 
 const ShortSuccessList = () => {
@@ -31,7 +31,7 @@ const ShortSuccessList = () => {
     return (
         <div>
             <SectionTitle
-            heading={"Our Short Success "}
+                heading={"Our Short Success "}
             ></SectionTitle>
             <div className="success-grid">
                 <div className="success-card">
@@ -78,7 +78,7 @@ const ShortSuccessList = () => {
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     );
