@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import useAuthContext from "./useAuthContext";
 
 const useClasses = () => {
-
+// const {loading} = useAuthContext();
 const {data: classes = [], isLoading: loading, refetch} = useQuery({
     queryKey: ['addClasses'],
     queryFn: async() => {
