@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import SHowClassCard from './SHowClassCard';
 import SectionTitle from '../components/SectionTitle';
-import useClasses from '../hooks/useClasses';
 
 const Classes = () => {
 
-    // const [approvedClasses, setApprovedClasses] = useState([]);
-const [classes, loading, refetch] = useClasses()
-console.log(classes);
+     const [approvedClasses, setApprovedClasses] = useState([]);
 
 
-// const allClassss = classes.map(classs => classs) 
 
-// const allClass = allClassss.filter(classes => classes.status === 'approved');
-// setApprovedClasses(allClass);
-    
-
+useEffect(() => {
+    fetch('http://localhost:5000/addClasses')
+        .then(res => res.json())
+        .then(data => {
+            const approvedClassData = data.filter(classes => classes.status === 'approved');
+            setApprovedClasses(approvedClassData)
+            console.log(approvedClassData)
+        })
+}, [])
 
 
     return (
@@ -23,7 +24,7 @@ console.log(classes);
             <SectionTitle heading={"All Classes Of Powerplay Fusion Edge "}></SectionTitle>
             <div className='grid md:grid-cols-3 mx-auto gap-8'>
                 {
-                    classes?.map(singleClass => <SHowClassCard refetch={refetch} singleClass={singleClass} key={singleClass._id}></SHowClassCard>)
+                    approvedClasses?.map(singleClass => <SHowClassCard  singleClass={singleClass} key={singleClass._id}></SHowClassCard>)
                 }
             </div>
         </div>
