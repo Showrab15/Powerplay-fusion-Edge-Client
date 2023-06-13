@@ -56,7 +56,8 @@ console.log(user)
                         image: imgURL,
                         instructorName: instructorName,
                         instructorEmail: instructorEmail,
-                        status: "pending"
+                        status: "pending",
+                        enrolled: 0
                     }
                     // console.log(newClass)
                     fetch('http://localhost:5000/addClasses',

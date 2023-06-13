@@ -86,7 +86,8 @@ console.log(paymentIntent)
                 enrolledClassId: selectedClassData.selectClassId                ,
                 enrolledClassName: selectedClassData.className,
                 enrolledClassImage: selectedClassData.image,
-                availableSeats: selectedClassData.availableSeats
+                availableSeats: selectedClassData.availableSeats,
+                status : 'paid'
             }
 
             axiosSecure.post('/payments', payment)
@@ -97,8 +98,6 @@ console.log(paymentIntent)
                             position: 'center',
                             icon: 'success',
                             title: `Payment successful for ${selectedClassData.className} `,
-                            showConfirmButton: false,
-                            timer: 1500
                         })
                     }
                 })

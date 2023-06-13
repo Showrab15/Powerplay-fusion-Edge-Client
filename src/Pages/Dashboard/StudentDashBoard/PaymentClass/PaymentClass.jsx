@@ -9,7 +9,7 @@ const Payment = () => {
     const selectedClassData = useLoaderData();
     const classPrice = selectedClassData.classPrice;
     console.log(selectedClassData)
-    return (
+    return ( 
         <div>
             <SectionTitle heading={"Pay Now"} subHeading={"Pay for enrolling to class"}/>
             <Elements stripe={stripePromise}>
