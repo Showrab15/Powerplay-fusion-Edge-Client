@@ -14,7 +14,7 @@ useEffect(() => {
         .then(data => {
             const approvedClassData = data.filter(classes => classes.status === 'approved');
             setApprovedClasses(approvedClassData)
-            console.log(approvedClassData)
+            // console.log(approvedClassData)
         })
 }, [])
 

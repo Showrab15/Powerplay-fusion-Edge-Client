@@ -78,7 +78,7 @@ const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <>
-              <tr key={singleClass._id}>
+              <tr>
                   <th>{index + 1}</th>
                   <td>
                     <div className="avatar">

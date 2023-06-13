@@ -47,7 +47,9 @@ const AllClasses = () => {
             <tbody>
               {classes.map((singleClass, index) =>
               <AllClassesTable singleClass={singleClass}
-              index={index} refetch={refetch}
+              index={index} 
+              key={singleClass._id}
+              refetch={refetch}
               ></AllClassesTable>
 
               )

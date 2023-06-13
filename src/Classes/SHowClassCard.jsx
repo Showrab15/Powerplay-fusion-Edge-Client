@@ -6,7 +6,7 @@ import useInstructor from '../hooks/useInstructor';
 import useAdmin from '../hooks/useAdmin';
 
 const SHowClassCard = ({ singleClass, refetch }) => {
-    console.log(singleClass);
+    // console.log(singleClass);
     const navigate = useNavigate();
     const location = useLocation();
     const { user } = useAuthContext();
@@ -34,11 +34,9 @@ const SHowClassCard = ({ singleClass, refetch }) => {
                     console.log(data);
                     if (data.insertedId) {
                         Swal.fire({
-                            position: 'top-center',
+                            position: 'center',
                             icon: 'success',
                             title: 'Your class selected',
-                            showConfirmButton: false,
-                            timer: 1500
                         })
                     }
                 })
