@@ -22,7 +22,7 @@ const SHowClassCard = ({ singleClass, refetch }) => {
 
         if (user && user.email) {
             const selectedClasses = { selectClassId: _id, className, image, instructorName, instructorEmail, availableSeats, classPrice, email: user?.email }
-            fetch('http://localhost:5000/selectedClass', {
+            fetch('https://assignment12-server-ten.vercel.app/selectedClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

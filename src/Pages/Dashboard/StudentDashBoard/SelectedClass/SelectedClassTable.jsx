@@ -19,7 +19,7 @@ const SelectedClassTable = ({ singleSelectedClass, index, refetch }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/selectedClass/${itemId}`, {
+                fetch(`https://assignment12-server-ten.vercel.app/selectedClass/${itemId}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

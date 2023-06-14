@@ -10,7 +10,7 @@ const {_id} = singleClass;
 
 
         console.log(id, status)
-        fetch(`http://localhost:5000/addClasses/${id}/?status=${status}`, {
+        fetch(`https://assignment12-server-ten.vercel.app/addClasses/${id}/?status=${status}`, {
           method: 'PATCH'
         })
           .then(res => res.json())
@@ -52,7 +52,7 @@ const [modalOpen, setModalOpen] = useState(false);
           };
         
        console.log(feedback)
-       fetch(`http://localhost:5000/addClasses/${_id}`, {
+       fetch(`https://assignment12-server-ten.vercel.app/addClasses/${_id}`, {
         method: 'PUT',
         headers: {
           'content-type': 'application/json'

@@ -9,7 +9,7 @@ const Classes = () => {
 
 
 useEffect(() => {
-    fetch('http://localhost:5000/addClasses')
+    fetch('https://assignment12-server-ten.vercel.app/addClasses')
         .then(res => res.json())
         .then(data => {
             const approvedClassData = data.filter(classes => classes.status === 'approved');

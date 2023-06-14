@@ -74,7 +74,7 @@ const router = createBrowserRouter([
           {
             path : 'mySelectedClass/payment/:id',
             element : <PrivateRoute><PaymentClass></PaymentClass></PrivateRoute>,
-            loader: ({params}) => {return fetch(`http://localhost:5000/selectedClass/${params.id}`)},
+            loader: ({params}) => {return fetch(`https://assignment12-server-ten.vercel.app/selectedClass/${params.id}`)},
 
           },
           {

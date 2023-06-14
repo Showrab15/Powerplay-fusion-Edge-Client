@@ -4,6 +4,8 @@ import Sponsors from '../../Sponsors/Sponsors';
 import ShortSuccessList from '../../ShortSuccessList/ShortSuccessList';
 import useAuthContext from '../../../hooks/useAuthContext';
 import { BallTriangle } from 'react-loader-spinner';
+import PopularClass from './PopularClass/PopularClass';
+import PopularInstructor from '../PopularInstructor/PopularInstructor';
 
 const Home = () => {
     // const {loading} = useAuthContext();
@@ -27,6 +29,8 @@ const Home = () => {
     return (
         <>
             <Header></Header>
+            <PopularClass></PopularClass>
+            <PopularInstructor></PopularInstructor>
             <Sponsors></Sponsors>
             <ShortSuccessList></ShortSuccessList>
         </>

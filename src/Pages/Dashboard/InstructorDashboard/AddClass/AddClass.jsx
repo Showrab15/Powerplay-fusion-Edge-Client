@@ -60,7 +60,7 @@ console.log(user)
                         enrolled: 0
                     }
                     // console.log(newClass)
-                    fetch('http://localhost:5000/addClasses',
+                    fetch('https://assignment12-server-ten.vercel.app/addClasses',
                         {
                             method: 'POST',
                             headers: {
