@@ -1,13 +1,13 @@
 import React from 'react';
-import { FaBook, FaCalendarAlt, FaHome, FaList, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../../../hooks/useAdmin';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
 import InstructorDashboard from '../InstructorDashboard/InstructorDashboard';
 import StudentDashBoard from '../StudentDashBoard/StudentDashBoard';
 import useInstructor from '../../../hooks/useInstructor';
-import useAuthContext from '../../../hooks/useAuthContext';
 import { BallTriangle } from  'react-loader-spinner'
+import { motion } from "framer-motion";
+
 
 const Dashboard = () => {
 
@@ -15,7 +15,14 @@ const Dashboard = () => {
   const [isInstructor] = useInstructor();
 
   return (
-    <div className="drawer  lg:drawer-open">
+
+    <motion.div
+    initial={{ opacity: 0, y: -50 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -50 }}
+    transition={{ duration: 0.5 }}
+  >
+ <div className="drawer  lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         <Outlet></Outlet>
@@ -39,7 +46,9 @@ const Dashboard = () => {
         </ul>
 
       </div>
-    </div>
+    </div>  </motion.div>
+
+   
   );
 };
 
