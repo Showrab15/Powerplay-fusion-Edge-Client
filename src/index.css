@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn{
+    @apply bg-yellow-400 hover:bg-rose-600
+}
+
+.hero-div{
+    @apply hero min-h-screen rounded-t-lg rounded-b-lg rounded-l-lg rounded-r-lg
+}
+
+.header-div{
+    @apply rounded-t-lg rounded-b-lg rounded-l-lg rounded-r-lg
+}
+
+.success-grid{
+    @apply grid md:grid-cols-4 mt-8  gap-8
+}
+
+.success-card{
+    @apply card  glass hover:scale-110 transition hover:bg-rose-600
+}
+
+.authentication-card{
+    @apply card md:w-1/2 flex-shrink-0 max-w-sm glass  outline outline-offset-2 outline-rose-600  bg-base-100
+}
